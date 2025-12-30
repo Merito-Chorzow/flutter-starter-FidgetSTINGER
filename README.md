@@ -58,8 +58,6 @@ Geo Journal to aplikacja mobilna napisana w Flutterze, umożliwiająca prowadzen
 
 ## Zrzuty ekranu
 
-> Przykładowe ekrany aplikacji (dodaj własne po uruchomieniu):
-
 ![Lista wpisów](assets/screens/lista.png)
 ![Dodaj wpis](assets/screens/dodaj.png)
 ![Szczegóły wpisu](assets/screens/szczegoly.png)
