@@ -13,60 +13,60 @@
 - [Komunikacja z API](#komunikacja-z-api)
 - [Uruchomienie](#uruchomienie)
 - [Wymagania zadania (DoD)](#wymagania-zadania-dod)
-- [Historia commitów](#historia-commitów)
 
 ---
 
 ## Opis projektu
 
-Geo Journal to aplikacja mobilna napisana w Flutterze, umożliwiająca prowadzenie dziennika wpisów powiązanych z lokalizacją lub zdjęciem. Użytkownik może przeglądać wpisy na liście lub mapie, dodawać nowe wpisy z wykorzystaniem natywnych funkcji urządzenia oraz przeglądać szczegóły każdego wpisu. Dane są synchronizowane z API.
+Geo Journal to aplikacja mobilna napisana w Flutterze, umożliwiająca prowadzenie dziennika wpisów powiązanych z lokalizacją lub zdjęciem. Użytkownik może przeglądać wpisy na liście, dodawać nowe wpisy z wykorzystaniem natywnych funkcji urządzenia oraz przeglądać szczegóły każdego wpisu. Dane są synchronizowane z API.
 
-## Funkcjonalności (Obecne)
+## Funkcjonalności
 
-- Wyświetlanie listy wpisów (obecnie dane statyczne).
-- Interfejs dodawania nowego wpisu (formularz z walidacją, symulacja zapisu).
-- Przeglądanie szczegółów wpisu (tytuł, opis, data).
-- Podstawowa nawigacja między ekranami.
+- **Przeglądanie wpisów** – Lista wpisów z tytułem, opisem i datą.
+- **Dodawanie wpisu** – Formularz z walidacją, obsługą GPS i aparatu.
+- **Szczegóły wpisu** – Pełny widok pojedynczego wpisu.
+- **Nawigacja** – Przejścia między ekranami.
+- **Stany aplikacji** – Obsługa ładowania, błędów i pustej listy.
 
 ## Widoki
 
-1. **Lista wpisów** – wyświetla listę wpisów (obecnie jeden wpis testowy).
-2. **Szczegóły wpisu** – prezentuje szczegóły wybranego wpisu.
-3. **Dodaj wpis** – formularz umożliwiający wpisanie tytułu i opisu.
+1. **Lista wpisów** – Wyświetla listę dodanych wpisów. Obsługuje stany ładowania i błędów.
+2. **Szczegóły wpisu** – Prezentuje szczegóły wybranego wpisu (tytuł, opis, data, lokalizacja, zdjęcie).
+3. **Dodaj wpis** – Formularz umożliwiający dodanie nowego wpisu. Zintegrowany z modułami GPS i aparatu.
 
 ## Funkcje natywne
 
-- Przygotowany model danych pod obsługę lokalizacji i zdjęć (funkcjonalność niezaimplementowana w widokach).
+### 1. GPS / Geolokalizacja
+
+Aplikacja pozwala na pobranie aktualnej lokalizacji użytkownika podczas dodawania wpisu.
+
+- Wykorzystuje pakiet `geolocator`.
+- Obsługuje uprawnienia i błędy lokalizacji.
+
+### 2. Aparat / Galeria
+
+Użytkownik może dodać zdjęcie do wpisu, wykonując je aparatem lub wybierając z galerii.
+
+- Wykorzystuje pakiet `image_picker`.
 
 ## Komunikacja z API
 
-- Brak (aplikacja korzysta z lokalnych, statycznych danych).
+Aplikacja posiada warstwę serwisową do komunikacji z API (`ApiService`).
 
-## Stany aplikacji
-
-- **Ładowanie** – wyświetlany spinner podczas pobierania danych
-- **Błąd** – komunikat o błędzie w przypadku problemów z API lub uprawnieniami
-- **Pusty** – informacja o braku wpisów
+- **Pobieranie wpisów (GET)** – Symulowane pobieranie listy wpisów.
+- **Dodawanie wpisu (POST)** – Symulowane wysyłanie nowego wpisu.
 
 ## Uruchomienie
 
-1. Zainstaluj Flutter SDK: https://docs.flutter.dev/get-started/install
-2. Przejdź do katalogu `geo_journal`
+1. Zainstaluj Flutter SDK.
+2. Przejdź do katalogu projektu.
 3. Zainstaluj zależności: `flutter pub get`
-4. Uruchom aplikację na emulatorze lub urządzeniu: `flutter run`
-5. (Opcjonalnie) Skonfiguruj własne API w pliku `api_service.dart`
-
-## Zrzuty ekranu
-
-![Lista wpisów](assets/screens/lista.png)
-![Dodaj wpis](assets/screens/dodaj.png)
-![Szczegóły wpisu](assets/screens/szczegoly.png)
-![Mapa wpisów](assets/screens/mapa.png)
+4. Uruchom aplikację: `flutter run`
 
 ## Wymagania zadania (DoD)
 
-- [ ] 3–4 widoki, kompletna nawigacja
-- [ ] Co najmniej 1 natywna funkcja (GPS lub aparat)
-- [ ] Co najmniej 1 operacja API (GET/POST)
-- [ ] Stany: ładowanie, błąd, pusty
-- [ ] README.md, zrzuty ekranów, min. 3 commity
+- [x] 3–4 widoki, kompletna nawigacja
+- [x] Co najmniej 1 natywna funkcja (GPS i aparat)
+- [x] Co najmniej 1 operacja API (GET/POST)
+- [x] Stany: ładowanie, błąd, pusty
+- [x] README.md, min. 3 commity
