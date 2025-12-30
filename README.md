@@ -1,30 +1,74 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/VcFknM5q)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=21969294&assignment_repo_type=AssignmentRepo)
-# Flutter: Geo Journal
+# Geo Journal
 
-## Cel
-Stwórz podstawową aplikację w **Flutter (Dart)** z **natywną funkcją** oraz **komunikacją z API**, zawierającą **3–4 widoki**.
+> Aplikacja Flutter do prowadzenia dziennika lokalizacji z natywną funkcją GPS/aparatu oraz komunikacją z API.
 
-## Zakres i wymagania funkcjonalne
-- **Natywna funkcja (min. 1):** wybierz i uzasadnij (np. lokalizacja GPS, aparat/kamera, udostępnianie/clipboard, czujniki).
-- **API (min. 1 endpoint):** odczyt listy wpisów lub zapis nowego.
-- **Widoki (3–4):**
-  1. **Mapa/Lista wpisów** (pin/pozycja lub lista z datą i miejscem).
-  2. **Szczegóły wpisu** (opis, zdjęcie/lokalizacja, akcje).
-  3. **Dodaj wpis** (formularz: tytuł, opis, przycisk „pobierz lokalizację” **lub** „zrób zdjęcie”).
-  4. *(Opcjonalnie)* **Ustawienia** (np. motyw jasny/ciemny).
-- **Nawigacja:** przejścia między widokami z przekazaniem identyfikatora.
-- **UX:** komunikaty o błędach, pusty stan, stany ładowania.
+---
 
+## Spis treści
 
-## Testowanie lokalne (w trakcie developmentu)
-- Uruchom na **emulatorze/urządzeniu**.
-- Pokaż: dodanie wpisu z **natywną funkcją** (GPS/zdjęcie), pojawienie się na liście/mapie.
-- Pokaż komunikację z **API** (pobranie/zapis), zachowanie bez internetu/bez uprawnień.
+- [Opis projektu](#opis-projektu)
+- [Funkcjonalności](#funkcjonalności)
+- [Widoki](#widoki)
+- [Funkcje natywne](#funkcje-natywne)
+- [Komunikacja z API](#komunikacja-z-api)
+- [Uruchomienie](#uruchomienie)
+- [Wymagania zadania (DoD)](#wymagania-zadania-dod)
+- [Historia commitów](#historia-commitów)
 
-## Definition of Done (DoD)
-- [ ] 3–4 widoki, kompletna nawigacja.
-- [ ] Co najmniej 1 **natywna funkcja**.
-- [ ] Co najmniej 1 operacja **API** (GET/POST).
-- [ ] Stany: ładowanie, błąd, pusty.
-- [ ] `README.md`, zrzuty ekranów, min. 3 commity.
+---
+
+## Opis projektu
+
+Geo Journal to aplikacja mobilna napisana w Flutterze, umożliwiająca prowadzenie dziennika wpisów powiązanych z lokalizacją lub zdjęciem. Użytkownik może przeglądać wpisy na liście lub mapie, dodawać nowe wpisy z wykorzystaniem natywnych funkcji urządzenia oraz przeglądać szczegóły każdego wpisu. Dane są synchronizowane z API.
+
+## Funkcjonalności (Obecne)
+
+- Wyświetlanie listy wpisów (obecnie dane statyczne).
+- Interfejs dodawania nowego wpisu (formularz z walidacją, symulacja zapisu).
+- Przeglądanie szczegółów wpisu (tytuł, opis, data).
+- Podstawowa nawigacja między ekranami.
+
+## Widoki
+
+1. **Lista wpisów** – wyświetla listę wpisów (obecnie jeden wpis testowy).
+2. **Szczegóły wpisu** – prezentuje szczegóły wybranego wpisu.
+3. **Dodaj wpis** – formularz umożliwiający wpisanie tytułu i opisu.
+
+## Funkcje natywne
+
+- Przygotowany model danych pod obsługę lokalizacji i zdjęć (funkcjonalność niezaimplementowana w widokach).
+
+## Komunikacja z API
+
+- Brak (aplikacja korzysta z lokalnych, statycznych danych).
+
+## Stany aplikacji
+
+- **Ładowanie** – wyświetlany spinner podczas pobierania danych
+- **Błąd** – komunikat o błędzie w przypadku problemów z API lub uprawnieniami
+- **Pusty** – informacja o braku wpisów
+
+## Uruchomienie
+
+1. Zainstaluj Flutter SDK: https://docs.flutter.dev/get-started/install
+2. Przejdź do katalogu `geo_journal`
+3. Zainstaluj zależności: `flutter pub get`
+4. Uruchom aplikację na emulatorze lub urządzeniu: `flutter run`
+5. (Opcjonalnie) Skonfiguruj własne API w pliku `api_service.dart`
+
+## Zrzuty ekranu
+
+> Przykładowe ekrany aplikacji (dodaj własne po uruchomieniu):
+
+![Lista wpisów](assets/screens/lista.png)
+![Dodaj wpis](assets/screens/dodaj.png)
+![Szczegóły wpisu](assets/screens/szczegoly.png)
+![Mapa wpisów](assets/screens/mapa.png)
+
+## Wymagania zadania (DoD)
+
+- [ ] 3–4 widoki, kompletna nawigacja
+- [ ] Co najmniej 1 natywna funkcja (GPS lub aparat)
+- [ ] Co najmniej 1 operacja API (GET/POST)
+- [ ] Stany: ładowanie, błąd, pusty
+- [ ] README.md, zrzuty ekranów, min. 3 commity
