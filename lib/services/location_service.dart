@@ -17,14 +17,19 @@ class LocationService {
       if (permission == LocationPermission.deniedForever) {
         return _getKatowicePosition();
       }
-      return await Geolocator.getCurrentPosition();
+      // Dodano timeout 5 sekund, aby uniknąć zawieszenia aplikacji na emulatorze
+      return await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.medium,
+        timeLimit: const Duration(seconds: 5),
+      );
     } catch (e) {
+      // W przypadku błędu lub timeoutu zwracamy domyślną lokalizację
       return _getKatowicePosition();
     }
   }
 
   Position _getKatowicePosition() {
-    // Default location: Katowice, Poland
+    // Domyślna lokalizacja: Katowice, Polska
     return Position(
       latitude: 50.2649,
       longitude: 19.0238,

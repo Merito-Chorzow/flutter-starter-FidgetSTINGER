@@ -5,7 +5,7 @@ import '../models/journal_entry.dart';
 class ApiService {
   static const String baseUrl = 'https://example.com/api/entries';
 
-  // Mock data for presentation - static to persist across instances
+  // Dane testowe (mock) do prezentacji - statyczne, aby zachować stan
   static final List<JournalEntry> _mockEntries = [
     JournalEntry(
       id: '1',
@@ -26,10 +26,10 @@ class ApiService {
   ];
 
   Future<List<JournalEntry>> fetchEntries() async {
-    // Simulate network delay
+    // Symulacja opóźnienia sieciowego
     await Future.delayed(const Duration(seconds: 1));
 
-    // For real API, uncomment the following block:
+    // Dla prawdziwego API, odkomentuj poniższy blok:
     /*
     final response = await http.get(Uri.parse(baseUrl));
     if (response.statusCode == 200) {
@@ -44,10 +44,10 @@ class ApiService {
   }
 
   Future<void> addEntry(JournalEntry entry) async {
-    // Simulate network delay
+    // Symulacja opóźnienia sieciowego
     await Future.delayed(const Duration(seconds: 1));
 
-    // For real API, uncomment the following block:
+    // Dla prawdziwego API, odkomentuj poniższy blok:
     /*
     final response = await http.post(
       Uri.parse(baseUrl),

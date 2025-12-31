@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'views/entry_list_view.dart';
 import 'views/add_entry_view.dart';
 import 'views/entry_detail_view.dart';
+import 'views/settings_view.dart';
 
 void main() {
   runApp(const GeoJournalApp());
@@ -27,6 +28,7 @@ class GeoJournalApp extends StatelessWidget {
         '/': (context) => const EntryListView(),
         '/add': (context) => const AddEntryView(),
         '/detail': (context) => const EntryDetailView(),
+        '/settings': (context) => const SettingsView(),
       },
     );
   }
